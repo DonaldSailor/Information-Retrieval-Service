@@ -1,0 +1,18 @@
+{
+    "data": 
+    {
+        "example_corpus": "example_data/scifact/corpus.jsonl",
+        "examples_to_load": 256
+    },
+    "models":
+    {
+        "encoder_model": "all-MiniLM-L6-v2",
+        "encoder_vector_size": 384
+    },
+    "qdrant":
+    {
+        "collection_name": "scifact",
+        "host": "http://qdrant:6333"
+    }
+    
+}

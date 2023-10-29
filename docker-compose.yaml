@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  qdrant:
+    image: qdrant/qdrant
+  ir-platform: 
+    build: ./server
+    command: bash -c "uvicorn main:app --host 0.0.0.0 --port 8000"
+    depends_on:
+      - qdrant
+  streamlite_app:
+    build: ./streamliteapp
+    ports:
+      - "8501:8501"
+    command: bash -c "streamlit run Main.py --server.port=8501 --server.address=0.0.0.0"
+    depends_on:
+      - ir-platform
